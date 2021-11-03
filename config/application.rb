@@ -18,5 +18,8 @@ module Scoreboard
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    # Allow puma-dev to run in development mode
+    config.hosts << "scoreboard.test"
   end
 end
