@@ -1,4 +1,14 @@
 = form_with(model: game) do |form|
+  = form.label :home_team_id, 'Home Team'
+  = form.collection_select :home_team_id, @teams, :id, :name
+  %br
+  = form.label :away_team_id, 'Away Team'
+  = form.collection_select :away_team_id, @teams, :id, :name
+  %br
+  = form.label :date
+  = form.datetime_field :date
+
+
   - if game.errors.any?
     #error_explanation
       %h2

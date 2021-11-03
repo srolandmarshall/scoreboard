@@ -1,3 +1,5 @@
 .scaffold_record{:id => "#{dom_id game}"}
-  %p
+  %h1 #{game.name}
+  %h3 #{game.date}
+  %p 
     = link_to "Show this game", game

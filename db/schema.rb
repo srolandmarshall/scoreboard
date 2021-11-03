@@ -10,12 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_03_022256) do
+ActiveRecord::Schema.define(version: 2021_11_03_032501) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "away_team", force: :cascade do |t|
+    t.integer "team_id"
+    t.integer "game_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "games", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "date", precision: 6
+    t.integer "home_team_id"
+    t.integer "away_team_id"
+  end
+
+  create_table "home_team", force: :cascade do |t|
+    t.integer "team_id"
+    t.integer "game_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "teams", force: :cascade do |t|
+    t.string "name"
+    t.string "geoname"
+    t.string "img_path"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
