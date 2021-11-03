@@ -65,3 +65,7 @@ group :test do
 end
 
 gem "pg", "~> 1.2"
+
+gem "haml", "~> 5.2"
+
+gem "haml-rails", "~> 2.0"
