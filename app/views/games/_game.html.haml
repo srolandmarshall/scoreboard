@@ -3,3 +3,4 @@
   %h3 #{game.date}
   %p 
     = link_to "Show this game", game
+    = link_to "Add a bet", new_bet_path(:game_id => game.id)

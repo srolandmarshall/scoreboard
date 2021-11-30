@@ -1,0 +1,14 @@
+%h1 New Bet 
+%form{:action => "/bets", :method => "post"}
+  = form_for @bet do |f|
+    = f.label :game_id
+    = f.select :game_id, Game.all.map{|game| [game.name, game.id]}, selected: @game.id
+    %br/
+    = f.label :odds
+    = f.number_field :odds, step: '5', value: 100
+    %br/
+    = f.label :amount, "Wager"
+    %span= '$'
+    = f.number_field :amount, step: '0.50', max: '99999.99', min: '.50'
+    %br/
+    = f.submit "Create Bet"
