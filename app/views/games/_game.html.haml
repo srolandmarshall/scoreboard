@@ -4,18 +4,9 @@
   %p 
     = link_to "Show this game", game
     = link_to "Add a bet", new_bet_path(:game_id => game.id)
-  %h3 Bets
-  %ul
-    - bets = game.bets
-    - bets.each do |bet|
-      %li
-        = bet.id
-        %p
-          %b Amount:
-          %span= bet.amount
-        %p
-          %b Bet:
-          %span= bet.bet_type
-        %p
-          %b Status:
-          %span= bet.status
+  - bets = game.bets
+  - unless bets.empty?
+    %h3 Bets
+    %ul
+      - bets.each do |bet|
+        = render :partial => 'bets/bet', :locals => {:bet => bet}

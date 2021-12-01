@@ -1,4 +1,6 @@
 %h1 New Bet 
+- if flash[:error]
+  %p.error= flash[:error]
 %form{:action => "/bets", :method => "post"}
   = form_for @bet do |f|
     = f.label :game_id
@@ -11,7 +13,7 @@
     %span= '$'
     = f.number_field :amount, step: '0.50', max: '99999.99', min: '.50'
     %br/
-    = f.label :bet_type
-    = f.select :bet_type, Bet::Type.all.map{|t| [t.name, t.id]}
+    = f.label :bet_type_id
+    = f.select :bet_type_id, Bet::Type.all.map{|t| [t.name, t.id]}
     %br/
     = f.submit "Create Bet"

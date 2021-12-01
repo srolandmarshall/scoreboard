@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_30_232648) do
+ActiveRecord::Schema.define(version: 2021_12_01_020258) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,13 +31,14 @@ ActiveRecord::Schema.define(version: 2021_11_30_232648) do
 
   create_table "bets", force: :cascade do |t|
     t.bigint "game_id", null: false
-    t.string "bet_type"
     t.boolean "active", default: false
     t.string "status", default: "Pending"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.decimal "amount", default: "0.0"
     t.integer "odds", default: 1
+    t.bigint "bet_type_id"
+    t.index ["bet_type_id"], name: "index_bets_on_bet_type_id"
     t.index ["game_id"], name: "index_bets_on_game_id"
   end
 
@@ -64,5 +65,6 @@ ActiveRecord::Schema.define(version: 2021_11_30_232648) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "bets", "bet_types"
   add_foreign_key "bets", "games"
 end
