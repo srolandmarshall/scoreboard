@@ -1,11 +1,13 @@
-%li
-  = bet.id
-  %p
-    %b Amount:
-    %span= bet.amount
-  %p
-    %b Bet:
-    %span= bet.bet_type_name
-  %p
-    %b Status:
-    %span= bet.status
+%div.col
+  %div.card
+    %div.card-body
+      %ul
+        %li
+          %b Amount:
+          %span= bet.amount
+        %li
+          %b Bet:
+          %span= bet.bet_type_name
+        %li
+          %b Status:
+          %span= bet.status

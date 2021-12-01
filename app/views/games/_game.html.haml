@@ -7,6 +7,7 @@
   - bets = game.bets
   - unless bets.empty?
     %h3 Bets
-    %ul
-      - bets.each do |bet|
-        = render :partial => 'bets/bet', :locals => {:bet => bet}
+    %div.container
+      %div.row.row-cols-3
+        - bets.each do |bet|
+          = render :partial => 'bets/bet', :locals => {:bet => bet}

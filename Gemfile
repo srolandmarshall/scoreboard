@@ -69,3 +69,5 @@ gem "pg", "~> 1.2"
 gem "haml", "~> 5.2"
 
 gem "haml-rails", "~> 2.0"
+
+gem "cssbundling-rails", "~> 0.2.6"
