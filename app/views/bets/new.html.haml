@@ -11,4 +11,7 @@
     %span= '$'
     = f.number_field :amount, step: '0.50', max: '99999.99', min: '.50'
     %br/
+    = f.label :bet_type
+    = f.select :bet_type, Bet::Type.all.map{|t| [t.name, t.id]}
+    %br/
     = f.submit "Create Bet"
